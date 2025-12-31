@@ -10,8 +10,15 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from app.core.database import engine, Base
 from app.models import user, organization, attendance, expense, project, client, budget, security, document
 from app.core.config import settings
-from app.services.auth_service import get_password_hash
+from passlib.context import CryptContext
 from sqlalchemy.orm import Session
+
+# Contexto para hashing de passwords
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def get_password_hash(password: str) -> str:
+    """Generar hash de password"""
+    return pwd_context.hash(password)
 
 def create_database():
     """Crear todas las tablas en la base de datos"""
