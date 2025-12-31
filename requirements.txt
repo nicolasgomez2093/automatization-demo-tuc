@@ -17,6 +17,7 @@ python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 python-dotenv==1.0.0
 pyotp==2.9.0
+qrcode[pil]==7.4.2
 
 # Data Processing & ML
 pandas==2.1.4
