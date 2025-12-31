@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     TWILIO_WHATSAPP_NUMBER: str = ""
     
     # CORS
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://automatizacion-demo.vercel.app,https://demo-dashbord-tucuman.vercel.app"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://automatizacion-demo.vercel.app,https://demo-dashbord-tucuman.vercel.app,https://automatization-demo-tuc.onrender.com"
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
