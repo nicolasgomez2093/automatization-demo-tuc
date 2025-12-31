@@ -22,6 +22,7 @@ def get_password_hash(password: str) -> str:
     password_truncated = password[:72]
     return pwd_context.hash(password_truncated)
 
+
 def create_database():
     """Crear todas las tablas en la base de datos"""
     print("🔧 Creando tablas en la base de datos...")
