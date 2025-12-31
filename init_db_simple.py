@@ -50,7 +50,7 @@ def main():
             full_name="Admin",
             hashed_password=pwd_context.hash("admin123"),
             is_active=True,
-            is_superuser=True,
+            role="superadmin",
             organization_id=org.id
         )
         db.add(admin)
