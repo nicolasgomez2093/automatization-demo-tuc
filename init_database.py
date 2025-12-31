@@ -8,7 +8,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from app.core.database import engine, Base
-from app.models import user, organization, attendance, expense, project, client, file, notification, budget, security, document, ai_assistant, admin
+from app.models import user, organization, attendance, expense, project, client, budget, security, document
 from app.core.config import settings
 from app.services.auth_service import get_password_hash
 from sqlalchemy.orm import Session
