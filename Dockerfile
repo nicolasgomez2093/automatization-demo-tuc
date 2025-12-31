@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Inicializar base de datos automáticamente
-RUN python init_database.py --force-rebuild-$(date +%s)
+RUN python init_db_simple.py
 
 # Exponer puerto
 EXPOSE 8000
