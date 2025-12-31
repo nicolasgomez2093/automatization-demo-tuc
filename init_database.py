@@ -75,7 +75,7 @@ def create_superadmin():
             email="admin@sistema.com",
             username="admin",
             full_name="Administrador del Sistema",
-            hashed_password=get_password_hash("admin123"),
+            hashed_password=get_password_hash("admin123"[:72]),
             is_active=True,
             is_superuser=True,
             organization_id=default_org.id
