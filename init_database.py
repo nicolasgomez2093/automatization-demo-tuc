@@ -61,7 +61,7 @@ def create_superadmin():
         from app.models.organization import Organization
         default_org = Organization(
             name="Sistema Principal",
-            description="Organización principal del sistema",
+            slug="sistema-principal",
             is_active=True
         )
         db.add(default_org)
