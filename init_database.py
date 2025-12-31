@@ -18,7 +18,9 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def get_password_hash(password: str) -> str:
     """Generar hash de password"""
-    return pwd_context.hash(password)
+    # bcrypt tiene límite de 72 bytes
+    password_truncated = password[:72]
+    return pwd_context.hash(password_truncated)
 
 def create_database():
     """Crear todas las tablas en la base de datos"""
