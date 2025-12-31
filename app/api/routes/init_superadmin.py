@@ -3,7 +3,12 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.user import User
 from app.models.organization import Organization
-from app.core.auth import get_password_hash
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def get_password_hash(password: str) -> str:
+    return pwd_context.hash(password)
 from pydantic import BaseModel
 
 router = APIRouter()
