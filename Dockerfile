@@ -21,8 +21,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar código
 COPY . .
 
-# Inicializar base de datos automáticamente
-RUN python init_db_simple.py
+# Inicializar base de datos automáticamente (solo tablas)
+RUN python -c "from app.core.database import engine, Base; from app.models import user, organization; Base.metadata.create_all(bind=engine); print('✅ Tablas creadas')"
 
 # Exponer puerto
 EXPOSE 8000

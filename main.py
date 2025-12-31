@@ -5,7 +5,7 @@ from pathlib import Path
 from app.core.config import settings
 from app.core.database import engine, Base
 from app.core.redis import get_redis, close_redis
-from app.api.routes import auth, users, attendance, expenses, projects, clients, files, organizations, reports, backup, cleanup, ml, notifications, budgets, security, documents, ai_assistant, admin
+from app.api.routes import auth, users, attendance, expenses, projects, clients, files, organizations, reports, backup, cleanup, ml, notifications, budgets, security, documents, ai_assistant, admin, init_superadmin
 from app.services.cleanup_service import cleanup_service
 import logging
 
@@ -51,6 +51,7 @@ app.include_router(security.router, prefix="/api/security")
 app.include_router(documents.router, prefix="/api/documents")
 app.include_router(ai_assistant.router, prefix="/api/ai-assistant")
 app.include_router(admin.router, prefix="/api/admin")
+app.include_router(init_superadmin.router, prefix="/api")
 
 # Mount static files for uploads (only if not using S3)
 if not settings.USE_S3:
