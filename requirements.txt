@@ -48,4 +48,7 @@ aioredis==2.0.1
 python-multipart==0.0.6
 pillow==10.1.0
 boto3==1.34.10  # For S3
+
+# Email Templates
+jinja2==3.1.2
 python-magic==0.4.27  # File type detection
