@@ -9,8 +9,11 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar requirements
-COPY requirements.txt .
+# Copiar requirements simple (sin numpy/scikit)
+COPY requirements_simple.txt requirements.txt
+
+# Instalar build tools primero
+RUN pip install --no-cache-dir setuptools wheel
 
 # Instalar dependencias Python
 RUN pip install --no-cache-dir -r requirements.txt
