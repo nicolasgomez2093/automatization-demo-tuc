@@ -1,0 +1,36 @@
+# Dockerfile minimalista para Railway - Evita problema de tamaño
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Instalar solo dependencias esenciales del sistema
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Copiar requirements minimalista
+COPY requirements_minimal.txt .
+
+# Instalar dependencias Python
+RUN pip install --no-cache-dir -r requirements_minimal.txt
+
+# Copiar solo archivos esenciales
+COPY app/ ./app/
+COPY main.py .
+COPY alembic/ ./alembic/
+COPY alembic.ini .
+
+# Crear directorios necesarios
+RUN mkdir -p uploads logs
+
+# Exponer puerto
+EXPOSE 8000
+
+# Health check simple
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:8000/health')" || exit 1
+
+# Comando de ejecución
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
