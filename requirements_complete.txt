@@ -1,0 +1,59 @@
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9
+
+# Authentication
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Data Processing & ML
+pandas==2.1.4
+openpyxl==3.1.2
+numpy==1.24.4
+scikit-learn==1.3.2
+
+# AI Integration
+openai==1.10.0
+anthropic==0.8.1
+
+# HTTP & API
+requests==2.31.0
+httpx==0.25.2
+
+# CORS
+fastapi-cors==0.0.6
+
+# Validation
+pydantic[email]==2.5.3
+pydantic-settings==2.1.0
+
+# Date/Time
+python-dateutil==2.8.2
+
+# Redis & Caching
+redis==5.0.1
+aioredis==2.0.1
+
+# File Upload & Images
+pillow==10.1.0
+python-magic==0.4.27
+
+# AWS S3
+boto3==1.34.10
+
+# Email Templates
+jinja2==3.1.2
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Additional utilities
+email-validator==2.3.0
